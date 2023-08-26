@@ -26,4 +26,3 @@ func add_to_line():
 			
 			line.append(obj)
 			
-			print("Added! Clients in line: ", len(line))
