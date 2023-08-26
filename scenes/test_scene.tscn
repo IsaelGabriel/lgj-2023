@@ -1,18 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkfcwp5sdhvea"]
+[gd_scene load_steps=4 format=3 uid="uid://bkfcwp5sdhvea"]
 
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="1_hehdr"]
-[ext_resource type="PackedScene" uid="uid://bqt63o8j1x5ys" path="res://scenes/box.tscn" id="2_trrvr"]
+[ext_resource type="Script" path="res://scripts/Network.gd" id="2_k0r3j"]
+[ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="3_na8rk"]
 
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_hehdr")]
 position = Vector2(260, 215)
 
-[node name="Box" parent="." instance=ExtResource("2_trrvr")]
-position = Vector2(32, 195)
+[node name="Network" type="Node" parent="."]
+script = ExtResource("2_k0r3j")
 
-[node name="Box2" parent="." instance=ExtResource("2_trrvr")]
-position = Vector2(241, 30)
+[node name="computer" parent="Network" instance=ExtResource("3_na8rk")]
+position = Vector2(681, 457)
 
-[node name="Box3" parent="." instance=ExtResource("2_trrvr")]
-position = Vector2(32, 131)
+[node name="computer2" parent="Network" instance=ExtResource("3_na8rk")]
+position = Vector2(270, 456)
+
+[node name="computer3" parent="Network" instance=ExtResource("3_na8rk")]
+position = Vector2(479, 278)
+
+[node name="computer4" parent="Network" instance=ExtResource("3_na8rk")]
+position = Vector2(630, 100)
+
+[node name="computer5" parent="Network" instance=ExtResource("3_na8rk")]
+position = Vector2(325, 98)
+
+[node name="Line2D" type="Line2D" parent="Network"]
+points = PackedVector2Array(354, 130, 373, 240, 440, 271)
+
+[node name="Line2D4" type="Line2D" parent="Network"]
+points = PackedVector2Array(630, 131, 621, 230, 509, 274)
+
+[node name="Line2D3" type="Line2D" parent="Network"]
+points = PackedVector2Array(300, 456, 429, 417, 461, 308)
+
+[node name="Line2D2" type="Line2D" parent="Network"]
+points = PackedVector2Array(646, 453, 545, 447, 486, 303)
