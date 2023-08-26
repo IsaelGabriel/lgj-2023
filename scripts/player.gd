@@ -39,7 +39,7 @@ func handle_input():
 	velocity = Vector2(x_input, y_input) * SPEED
 	
 	if Input.is_action_just_pressed("p1_use") and current_target != null:
-		current_target.use()
+		current_target.interacting = not current_target.interacting
 	
 func handle_selection():
 	var space_state = get_world_2d().direct_space_state
