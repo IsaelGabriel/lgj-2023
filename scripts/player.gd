@@ -10,6 +10,8 @@ const SPEED = 50.0
 
 # vars
 
+@onready var sprite = $Sprite2D
+@onready var animator = $AnimationPlayer
 var current_target = null
 
 func _process(_delta):
@@ -35,6 +37,28 @@ func handle_input():
 	if Input.is_action_pressed("p1_down"):
 		y_input += 1
 		current_direction = Vector2.DOWN
+	
+	if x_input == 0.0 and y_input == 0.0:
+		match current_direction:
+			Vector2.DOWN:
+				animator.play("player_idle_down")
+			Vector2.UP:
+				animator.play("player_idle_up")
+			_:
+				animator.play("player_idle_side")
+	else:
+		match current_direction:
+			Vector2.DOWN:
+				animator.play("player_walk_down")
+			Vector2.UP:
+				animator.play("player_walk_up")
+			Vector2.LEFT:
+				animator.play("player_walk_side")
+				sprite.flip_h = true
+			Vector2.RIGHT:
+				animator.play("player_walk_side")
+				sprite.flip_h = false
+				
 	
 	velocity = Vector2(x_input, y_input) * SPEED
 	
