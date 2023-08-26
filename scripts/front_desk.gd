@@ -9,6 +9,7 @@ extends "res://scripts/box.gd"
 var line = []
 
 func _ready():
+	super._ready()
 	add_to_line()
 
 func add_to_line():
@@ -26,3 +27,11 @@ func add_to_line():
 			
 			line.append(obj)
 			
+func use():
+	if len(line) > 0:
+		# destroys clients in line, fix later
+		line[0].queue_free()
+		line.pop_at(0)
+		for i in range(len(line)):
+			line[i].global_position = client_spawn.global_position
+			line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
