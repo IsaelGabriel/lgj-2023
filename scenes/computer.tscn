@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6vc6tnmg4sio"]
+
+[ext_resource type="Script" path="res://scenes/computer.gd" id="1_buep4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcp5"]
+
+[node name="computer" type="StaticBody2D"]
+script = ExtResource("1_buep4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jwcp5")
+
+[node name="VirusTimer" type="Timer" parent="."]
