@@ -47,7 +47,6 @@ func _ready():
 func _process(delta):
 	if interacting:
 		interaction_count += delta
-		print(interaction_duration - interaction_count)
 		if interaction_count >= interaction_duration:
 			use()
 			interaction_count = 0.0
