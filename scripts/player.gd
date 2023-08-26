@@ -61,3 +61,4 @@ func handle_selection():
 		
 	elif current_target != null:
 		current_target.selected = false
+		current_target = null
