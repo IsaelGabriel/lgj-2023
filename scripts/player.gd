@@ -59,6 +59,9 @@ func handle_input():
 				animator.play("player_walk_side")
 				sprite.flip_h = false
 				
+	if x_input != 0.0 and y_input != 0.0:
+		x_input *= 0.7
+		y_input *= 0.7
 	
 	velocity = Vector2(x_input, y_input) * SPEED
 	
