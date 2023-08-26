@@ -28,13 +28,21 @@ position = Vector2(630, 100)
 position = Vector2(325, 98)
 
 [node name="Line2D" type="Line2D" parent="Network"]
-points = PackedVector2Array(354, 130, 373, 240, 440, 271)
+z_index = -1
+points = PackedVector2Array(327, 116, 363, 261, 471, 280)
+default_color = Color(0.132813, 0.125, 0.203125, 1)
 
 [node name="Line2D4" type="Line2D" parent="Network"]
-points = PackedVector2Array(630, 131, 621, 230, 509, 274)
+z_index = -1
+points = PackedVector2Array(635, 116, 621, 230, 495, 278)
+default_color = Color(0.132813, 0.125, 0.203125, 1)
 
 [node name="Line2D3" type="Line2D" parent="Network"]
-points = PackedVector2Array(300, 456, 429, 417, 461, 308)
+z_index = -1
+points = PackedVector2Array(281, 463, 429, 417, 472, 292)
+default_color = Color(0.132813, 0.125, 0.203125, 1)
 
 [node name="Line2D2" type="Line2D" parent="Network"]
-points = PackedVector2Array(646, 453, 545, 447, 486, 303)
+z_index = -1
+points = PackedVector2Array(693, 460, 545, 447, 486, 284)
+default_color = Color(0.132813, 0.125, 0.203125, 1)
