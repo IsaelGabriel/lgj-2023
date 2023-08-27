@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="3_na8rk"]
 [ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="4_7spk4"]
 [ext_resource type="PackedScene" uid="uid://150g0dk20hk6" path="res://scenes/Ethernet.tscn" id="4_lsrrs"]
-[ext_resource type="PackedScene" uid="uid://dr0hmpiffwu1d" path="res://scenes/ui.tscn" id="5_jl0mr"]
-[ext_resource type="PackedScene" uid="uid://b7ktr7jepcvm2" path="res://scenes/music.tscn" id="7_lsiy8"]
+[ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="5_jl0mr"]
+[ext_resource type="PackedScene" uid="uid://csjpshjegmhex" path="res://scenes/music.tscn" id="7_lsiy8"]
 [ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_t7p0f"]
 
 [node name="TestScene" type="Node2D"]

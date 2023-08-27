@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="4_rwupc"]
 [ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="6_aqqgc"]
 [ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="7_wbf0n"]
-[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="8_83saq"]
+[ext_resource type="PackedScene" uid="uid://csjpshjegmhex" path="res://scenes/music.tscn" id="8_83saq"]
 [ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="8_pe6qr"]
 
 [node name="TestScene" type="Node2D"]
