@@ -57,6 +57,7 @@ func virus(source: String):
 		status=Status.VIRUS
 		virus_timer.start()
 		sprite.frame_coords.x = 1
+		$AudioPlayerError.play()
 	if interacting_object!=null:
 		interacting_object.interacting=false
 	

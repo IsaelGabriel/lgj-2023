@@ -20,3 +20,7 @@ position = Vector2(32, 131)
 
 [node name="Front Desk" parent="." instance=ExtResource("3_f5al6")]
 position = Vector2(547, 234)
+line_interval = 5.0
+progress_bar_size = Vector2(64, 8)
+progress_bar_position = Vector2(-32, -36)
+progress_bar_scale = Vector2(1, 1)

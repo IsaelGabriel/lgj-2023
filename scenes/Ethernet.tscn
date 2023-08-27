@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjoygk5cht1c5"]
+[gd_scene format=3 uid="uid://150g0dk20hk6"]
 
 [node name="Line2D" type="Line2D"]
 z_index = -1

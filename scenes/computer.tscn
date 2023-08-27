@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6vc6tnmg4sio"]
+[gd_scene load_steps=5 format=3 uid="uid://b6vc6tnmg4sio"]
 
 [ext_resource type="Script" path="res://scripts/computer.gd" id="1_1vj64"]
 [ext_resource type="Texture2D" uid="uid://b1q2gi7no3arl" path="res://sprites/placeholder_computer.png" id="2_r4050"]
+[ext_resource type="AudioStream" uid="uid://ddqy10qx86ofv" path="res://sounds/572936__bloodpixelhero__error.wav" id="3_qmfb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcp5"]
 size = Vector2(64, 64)
@@ -28,5 +29,8 @@ vframes = 3
 [node name="ImunityTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="AudioPlayerError" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qmfb6")
 
 [connection signal="timeout" from="VirusTimer" to="." method="_on_virus_timer_timeout"]
