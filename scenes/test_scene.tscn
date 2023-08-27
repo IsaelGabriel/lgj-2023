@@ -14,19 +14,29 @@ script = ExtResource("2_k0r3j")
 
 [node name="computer" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(681, 457)
+collision_layer = 3
+collision_mask = 3
 direction = 0
 
 [node name="computer2" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(270, 456)
+collision_layer = 3
+collision_mask = 3
 
 [node name="computer3" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(479, 278)
+collision_layer = 3
+collision_mask = 3
 
 [node name="computer4" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(630, 100)
+collision_layer = 3
+collision_mask = 3
 
 [node name="computer5" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(325, 98)
+collision_layer = 3
+collision_mask = 3
 direction = 1
 
 [node name="Line2D" type="Line2D" parent="Network"]

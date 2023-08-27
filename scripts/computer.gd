@@ -1,3 +1,4 @@
+@tool
 extends "res://scripts/box.gd"
 
 enum Status {FREE,BUSY,VIRUS}
@@ -11,18 +12,23 @@ enum Direction {LEFT,RIGHT,UP,DOWN}
 
 # direction handling
 @export var direction: Direction = Direction.DOWN
+		
+
+func _ready():
+	super()
+	match direction:
+			Direction.DOWN:
+				sprite.frame_coords.y = 0
+			Direction.UP:
+				sprite.frame_coords.y = 2
+			_:
+				sprite.frame_coords.y = 1
+	
+	sprite.flip_h = (direction == Direction.LEFT)
 
 func start(adjacency):
 	connections=adjacency
-	match direction:
-		Direction.DOWN:
-			sprite.frame_coords.y = 0
-		Direction.UP:
-			sprite.frame_coords.y = 2
-		_:
-			sprite.frame_coords.y = 1
 	
-	sprite.flip_h = (direction == Direction.LEFT)
 
 func use(): #temporary for testing
 	if status==Status.VIRUS:
