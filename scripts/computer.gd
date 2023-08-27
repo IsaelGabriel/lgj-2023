@@ -41,6 +41,9 @@ func start(adjacency):
 func use(): #temporary for testing
 	if status==Status.VIRUS:
 		fix()
+		if interacting_object!=null:
+			interacting_object.interacting=true
+		
 	# removed in order to place clients
 	#elif status==Status.FREE:
 	#	virus()
@@ -50,6 +53,8 @@ func virus():
 		status=Status.VIRUS
 		virus_timer.start()
 		sprite.frame_coords.x = 1
+	if interacting_object!=null:
+		interacting_object.interacting=false
 	
 
 func infect():
@@ -59,10 +64,11 @@ func infect():
 
 func fix():
 	if status==Status.VIRUS:
-		status=Status.FREE
+		status=Status.BUSY
 		virus_timer.stop()
 		sprite.frame_coords.x = 0
 		imunity_timer.start()
+	
 	
 func _on_virus_timer_timeout():
 	infect()
@@ -70,8 +76,10 @@ func _on_virus_timer_timeout():
 func _set_interacting_object(new_value): #new_value will always be a player
 	if status==Status.FREE and new_value:
 		interacting_object=new_value.guided_costumer 
-		interacting_object.interacting_object=self
-		interacting_object.current_state=interacting_object.State.USE_PC          
+		interacting_object .interacting_object=self
+		interacting_object.current_state=interacting_object.State.USE_PC     
+		interacting_object.interacting=true     
 		new_value.guided_costumer=null
 		new_value.swap_state()
 		status=Status.BUSY
+		print("busy")

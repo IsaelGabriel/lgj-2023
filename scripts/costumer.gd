@@ -13,9 +13,11 @@ enum State {LINE, FOLLOW, USE_PC, LEAVE}
 const SPEED = 100.0
 
 func _ready():
+	interaction_duration=10.0
 	super()
-	collision_mask = 0b10
-	collision_layer = 0b10
+	collision_mask = 0b00
+	collision_layer = 0b00
+	
 
 func _process(delta):
 	super(delta)
@@ -56,5 +58,8 @@ func process_use_pc(delta):
 	#if position.distance_to(target_position) < MIN_FOLLOW_DISTANCE:
 	#	normalized_position = (position - player.position).normalized()
 	#	position = player.position + normalized_position * MIN_FOLLOW_DISTANCE
-func exit():
+func use():
+	interacting_object.status=interacting_object.Status.FREE
 	queue_free()
+	
+	
