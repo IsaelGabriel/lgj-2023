@@ -6,6 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btix6"]
 size = Vector2(36, 64)
 
+[sub_resource type="Animation" id="Animation_o5poo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_527c1"]
 resource_name = "customer_idle_down"
 loop_mode = 2
@@ -23,8 +38,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_o5poo"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_yuq1j"]
+resource_name = "customer_idle_side"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,7 +50,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_hkcg7"]
+resource_name = "customer_idle_up"
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_y7lp3"]
@@ -56,8 +87,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_hkcg7"]
-resource_name = "customer_idle_up"
+[sub_resource type="Animation" id="Animation_6kdfa"]
+resource_name = "customer_walk_side"
+length = 0.666683
+loop_mode = 1
 step = 0.166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -66,10 +99,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_toxwi"]
@@ -88,39 +121,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_yuq1j"]
-resource_name = "customer_idle_side"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_6kdfa"]
-resource_name = "customer_walk_side"
-length = 0.666683
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3crlx"]
