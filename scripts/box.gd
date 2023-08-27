@@ -48,6 +48,7 @@ func _process(delta):
 	if interacting:
 		interaction_count += delta
 		if interaction_count >= interaction_duration:
+			interacting = false
 			use()
 			interaction_count = 0.0
 	elif interaction_count > 0.0:

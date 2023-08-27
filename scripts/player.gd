@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # constants
 
-const SPEED = 50.0
+const SPEED = 100.0
 
 # enums
 
