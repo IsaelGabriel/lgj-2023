@@ -5,11 +5,17 @@ extends CharacterBody2D
 const SPEED = 100.0
 const ACC = 120.0
 
+const SPRITE_PATHS = [ 
+	preload("res://sprites/player_walk.png"),
+	preload("res://sprites/player_walk_2.png")
+	]
+
 # enums
 enum State {FREE, GUIDING}
 
 
 # vars
+@export var ID = 1
 @onready var current_direction = Vector2.DOWN
 @onready var sprite = $Sprite2D
 @onready var animator = $AnimationPlayer
@@ -19,9 +25,12 @@ var current_target = null
 var acceleration: Vector2 = Vector2(0, 0)
 var decceleration: Vector2 = Vector2(0, 0)
 
-# costumer handling
+# customer handling
 
-var guided_costumer = null #stores the reference for the costumer that is going to a pc, cant select while != null
+var guided_customer = null #stores the reference for the customer that is going to a pc, cant select while != null
+
+func _ready():
+	sprite.texture = SPRITE_PATHS[ID - 1]
 
 func _process(delta):
 	handle_input(delta)
