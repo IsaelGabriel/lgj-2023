@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xsqkh"]
 [ext_resource type="Texture2D" uid="uid://xu5ssdol7dm8" path="res://sprites/player_walk.png" id="2_tq1qe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyshg"]
-size = Vector2(36, 62)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0ed3"]
+radius = 18.0
+height = 62.0
 
 [sub_resource type="Animation" id="Animation_xhj1n"]
 length = 0.001
@@ -143,7 +144,7 @@ vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_vyshg")
+shape = SubResource("CapsuleShape2D_g0ed3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
