@@ -12,19 +12,21 @@ position = Vector2(260, 215)
 [node name="Network" type="Node" parent="."]
 script = ExtResource("2_k0r3j")
 
-[node name="computer" parent="Network" instance=ExtResource("3_na8rk")]
+[node name="Computers" type="Node" parent="Network"]
+
+[node name="computer" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(681, 457)
 
-[node name="computer2" parent="Network" instance=ExtResource("3_na8rk")]
+[node name="computer2" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(270, 456)
 
-[node name="computer3" parent="Network" instance=ExtResource("3_na8rk")]
+[node name="computer3" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(479, 278)
 
-[node name="computer4" parent="Network" instance=ExtResource("3_na8rk")]
+[node name="computer4" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(630, 100)
 
-[node name="computer5" parent="Network" instance=ExtResource("3_na8rk")]
+[node name="computer5" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(325, 98)
 
 [node name="Line2D" type="Line2D" parent="Network"]
@@ -46,3 +48,14 @@ default_color = Color(0.132813, 0.125, 0.203125, 1)
 z_index = -1
 points = PackedVector2Array(693, 460, 545, 447, 486, 284)
 default_color = Color(0.132813, 0.125, 0.203125, 1)
+
+[node name="MaxVirusTimer" type="Timer" parent="Network"]
+wait_time = 15.0
+autostart = true
+
+[node name="VirusTimer" type="Timer" parent="Network"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
+[connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]
