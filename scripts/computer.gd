@@ -62,6 +62,7 @@ func virus(source: String):
 	
 
 func infect():
+	if connections.size() == 0: return 
 	randomize()
 	var i=randi()%(connections.size())
 	connections[i].virus("computer")
