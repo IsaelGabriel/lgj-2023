@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5ufybv0xjdkd"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_03.gd" id="1_xmk2q"]
+[ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="2_we0vc"]
+[ext_resource type="Script" path="res://scripts/Network.gd" id="3_gfro7"]
+[ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="4_3hq1p"]
+[ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="5_v86ye"]
+[ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="6_66gj2"]
+[ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_whgsa"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_xmk2q")
+
+[node name="Player" parent="." instance=ExtResource("2_we0vc")]
+position = Vector2(260, 215)
+ID = 2
+
+[node name="Network" type="Node" parent="."]
+script = ExtResource("3_gfro7")
+
+[node name="Computers" type="Node" parent="Network"]
+
+[node name="computer1" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(360, 96)
+
+[node name="computer2" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(257, 96)
+
+[node name="computer3" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(152, 96)
+
+[node name="computer4" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(88, 250)
+direction = 1
+
+[node name="computer5" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(88, 346)
+direction = 1
+
+[node name="computer6" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(88, 442)
+direction = 1
+
+[node name="computer7" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(195, 511)
+direction = 2
+
+[node name="computer8" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(284, 511)
+direction = 2
+
+[node name="computer9" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(396, 511)
+direction = 2
+
+[node name="computer10" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(506, 511)
+direction = 2
+
+[node name="computer11" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(608, 512)
+direction = 2
+
+[node name="computer12" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(277, 335)
+
+[node name="computer13" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(383, 335)
+
+[node name="computer14" parent="Network/Computers" instance=ExtResource("4_3hq1p")]
+position = Vector2(503, 335)
+
+[node name="MaxVirusTimer" type="Timer" parent="Network"]
+wait_time = 15.0
+autostart = true
+
+[node name="VirusTimer" type="Timer" parent="Network"]
+wait_time = 120.0
+autostart = true
+
+[node name="Front Desk" parent="." instance=ExtResource("5_v86ye")]
+position = Vector2(845, 230)
+line_interval = 2.0
+max_clients = 2
+
+[node name="UI" parent="." instance=ExtResource("6_66gj2")]
+z_index = 5
+goal = 1200
+
+[node name="Tiles" parent="." instance=ExtResource("7_whgsa")]
+
+[connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
+[connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]

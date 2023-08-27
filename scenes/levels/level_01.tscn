@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv0sxuoqwvvvt"]
+[gd_scene load_steps=9 format=3 uid="uid://dv0sxuoqwvvvt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_01.gd" id="1_b2qqn"]
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="2_w6oef"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="4_rwupc"]
 [ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="6_aqqgc"]
 [ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="7_wbf0n"]
+[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="8_83saq"]
 [ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="8_pe6qr"]
 
 [node name="TestScene" type="Node2D"]
@@ -13,6 +14,7 @@ script = ExtResource("1_b2qqn")
 
 [node name="Player" parent="." instance=ExtResource("2_w6oef")]
 position = Vector2(260, 215)
+ID = 2
 
 [node name="Network" type="Node" parent="."]
 script = ExtResource("3_aihfh")
@@ -48,8 +50,11 @@ goal = 60
 offset_left = 372.0
 offset_top = 385.0
 offset_right = 584.0
-offset_bottom = 425.0
-text = "Take customers to PCs!"
+offset_bottom = 457.0
+text = "Take customers to PCs,
+but beware the virus!"
+
+[node name="music" parent="." instance=ExtResource("8_83saq")]
 
 [connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
 [connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]
