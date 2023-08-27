@@ -18,6 +18,9 @@ var current_target = null
 var acceleration: Vector2 = Vector2(0, 0)
 var decceleration: Vector2 = Vector2(0, 0)
 
+# costumer handling
+
+var guided_costumer = null #stores the reference for the costumer that is going to a pc, cant select while != null
 
 func _process(delta):
 	handle_input(delta)

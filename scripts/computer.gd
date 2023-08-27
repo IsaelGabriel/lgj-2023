@@ -33,8 +33,9 @@ func start(adjacency):
 func use(): #temporary for testing
 	if status==Status.VIRUS:
 		fix()
-	elif status==Status.FREE:
-		virus()
+	# removed in order to place clients
+	#elif status==Status.FREE:
+	#	virus()
 
 func virus():
 	if status!=Status.VIRUS and imunity_timer.is_stopped():
