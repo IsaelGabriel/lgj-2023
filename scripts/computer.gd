@@ -48,8 +48,8 @@ func use(): #temporary for testing
 	#elif status==Status.FREE:
 	#	virus()
 
-func virus():
-	if status==Status.BUSY and imunity_timer.is_stopped():
+func virus(source: String):
+	if imunity_timer.is_stopped() and ((status==Status.BUSY and source == "network") or source == "computer"):
 		status=Status.VIRUS
 		virus_timer.start()
 		sprite.frame_coords.x = 1
@@ -60,7 +60,7 @@ func virus():
 func infect():
 	randomize()
 	var i=randi()%(connections.size())
-	connections[i].virus()
+	connections[i].virus("computer")
 
 func fix():
 	if status==Status.VIRUS:
@@ -76,7 +76,7 @@ func _on_virus_timer_timeout():
 func _set_interacting_object(new_value): #new_value will always be a player
 	if status==Status.FREE and new_value:
 		interacting_object=new_value.guided_costumer 
-		interacting_object .interacting_object=self
+		interacting_object.interacting_object=self
 		interacting_object.current_state=interacting_object.State.USE_PC     
 		interacting_object.interacting=true     
 		new_value.guided_costumer=null
