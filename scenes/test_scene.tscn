@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkfcwp5sdhvea"]
+[gd_scene load_steps=8 format=3 uid="uid://bkfcwp5sdhvea"]
 
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="1_hehdr"]
 [ext_resource type="Script" path="res://scripts/Network.gd" id="2_k0r3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="4_7spk4"]
 [ext_resource type="PackedScene" uid="uid://cjoygk5cht1c5" path="res://scenes/Ethernet.tscn" id="4_lsrrs"]
 [ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="5_jl0mr"]
+[ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_t7p0f"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -29,16 +30,17 @@ direction = 2
 position = Vector2(479, 278)
 
 [node name="computer4" parent="Network/Computers" instance=ExtResource("3_na8rk")]
-position = Vector2(630, 100)
+position = Vector2(625, 168)
 
 [node name="computer5" parent="Network/Computers" instance=ExtResource("3_na8rk")]
-position = Vector2(325, 98)
+position = Vector2(325, 169)
 
 [node name="Line2D" parent="Network" instance=ExtResource("4_lsrrs")]
+points = PackedVector2Array(323, 177, 363, 261, 471, 280)
 
 [node name="Line2D4" type="Line2D" parent="Network"]
 z_index = -1
-points = PackedVector2Array(635, 116, 621, 230, 495, 278)
+points = PackedVector2Array(631, 173, 621, 230, 495, 278)
 default_color = Color(0.132813, 0.125, 0.203125, 1)
 
 [node name="Line2D3" type="Line2D" parent="Network"]
@@ -63,6 +65,8 @@ autostart = true
 position = Vector2(1016, 236)
 
 [node name="UI" parent="." instance=ExtResource("5_jl0mr")]
+
+[node name="Tiles" parent="." instance=ExtResource("7_t7p0f")]
 
 [connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
 [connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]
