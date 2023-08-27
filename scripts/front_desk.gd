@@ -19,18 +19,22 @@ func add_to_line():
 			
 			# instantiate line object here
 			var obj = client_prefab.instantiate()
+			var obj_sprite = obj.get_node("Sprite2D")
+			var distance_between_objs = (obj_sprite.texture.get_height() * obj_sprite.scale.y) + 1
 			
-			owner.add_child(obj)
+			
+			get_parent().add_child(obj)
 			
 			obj.global_position = client_spawn.global_position
-			obj.global_position.y -= ((obj.get_node("Sprite2D").texture.get_height() / 2 + 1) * len(line))
+			obj.global_position.y -= (distance_between_objs * len(line))
 			
 			line.append(obj)
 			
 func use():
 	if len(line) > 0:
 		# destroys clients in line, fix later
-		line[0].queue_free()
+		line[0].current_state = line[0].State.FOLLOW
+		
 		line.pop_at(0)
 		for i in range(len(line)):
 			line[i].global_position = client_spawn.global_position

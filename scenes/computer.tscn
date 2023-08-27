@@ -7,6 +7,8 @@
 size = Vector2(64, 64)
 
 [node name="computer" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_1vj64")
 interaction_duration = 0.5
 

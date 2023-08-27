@@ -14,9 +14,11 @@ script = ExtResource("2_k0r3j")
 
 [node name="computer" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(681, 457)
+direction = 0
 
 [node name="computer2" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(270, 456)
+direction = 2
 
 [node name="computer3" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(479, 278)
@@ -26,6 +28,7 @@ position = Vector2(630, 100)
 
 [node name="computer5" parent="Network" instance=ExtResource("3_na8rk")]
 position = Vector2(325, 98)
+direction = 1
 
 [node name="Line2D" type="Line2D" parent="Network"]
 z_index = -1
