@@ -31,13 +31,16 @@ func process_line(delta):
 	pass
 
 func process_follow(delta):
-	var target_position = player.position - player.current_direction * MIN_FOLLOW_DISTANCE
-	
-	var normalized_position = (target_position - position).normalized()
-	await get_tree().create_timer(0.2)
-	position += normalized_position * delta * player.SPEED
-	if position.distance_to(target_position) < 2:
-		position = target_position
+	if interacting_object!=null:
+		var target_position = interacting_object.position - interacting_object.current_direction * MIN_FOLLOW_DISTANCE
+		
+		var normalized_position = (target_position - position).normalized()
+		await get_tree().create_timer(0.2)
+		position += normalized_position * delta * player.SPEED
+		if position.distance_to(target_position) < 2:
+			position = target_position
+
+
 	#if position.distance_to(target_position) < MIN_FOLLOW_DISTANCE:
 	#	normalized_position = (position - player.position).normalized()
 	#	position = player.position + normalized_position * MIN_FOLLOW_DISTANCE

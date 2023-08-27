@@ -13,6 +13,8 @@ extends StaticBody2D
 var interaction_count: float = 0.0
 var selected = false : set = _set_select
 var interacting = false: set = _set_interacting
+var object_state = null: set =_set_object_state
+var interacting_object = null: set =_set_interacting_object
 
 func _set_interacting(new_value: bool):
 	if not new_value is bool: return
@@ -59,7 +61,11 @@ func _process(delta):
 	progress_bar.value = interaction_count
 	progress_bar.visible = interaction_count >  0
 	
-	
+func _set_object_state(new_value):
+	object_state=new_value
 
+func _set_interacting_object(new_value):
+	interacting_object=new_value
+	
 func use():
 	pass

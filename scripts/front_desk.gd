@@ -31,11 +31,16 @@ func add_to_line():
 			line.append(obj)
 			
 func use():
-	if len(line) > 0:
+	var teste
+	if len(line) > 0 and object_state==interacting_object.State.FREE:
 		# destroys clients in line, fix later
 		line[0].current_state = line[0].State.FOLLOW
+		line[0].interacting_object=interacting_object
+		interacting_object.state=interacting_object.State.GUIDING
 		
 		line.pop_at(0)
 		for i in range(len(line)):
 			line[i].global_position = client_spawn.global_position
 			line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
+
+
