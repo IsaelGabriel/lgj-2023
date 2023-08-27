@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkfcwp5sdhvea"]
+[gd_scene load_steps=10 format=3 uid="uid://bkfcwp5sdhvea"]
 
+[ext_resource type="Script" path="res://scenes/Level.gd" id="1_gi6uo"]
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="1_hehdr"]
 [ext_resource type="Script" path="res://scripts/Network.gd" id="2_k0r3j"]
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="3_na8rk"]
@@ -7,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://150g0dk20hk6" path="res://scenes/Ethernet.tscn" id="4_lsrrs"]
 [ext_resource type="PackedScene" uid="uid://dr0hmpiffwu1d" path="res://scenes/ui.tscn" id="5_jl0mr"]
 [ext_resource type="PackedScene" uid="uid://b7ktr7jepcvm2" path="res://scenes/music.tscn" id="7_lsiy8"]
+[ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_t7p0f"]
 
 [node name="TestScene" type="Node2D"]
+script = ExtResource("1_gi6uo")
 
 [node name="Player" parent="." instance=ExtResource("1_hehdr")]
 position = Vector2(260, 215)
@@ -30,16 +33,17 @@ direction = 2
 position = Vector2(479, 278)
 
 [node name="computer4" parent="Network/Computers" instance=ExtResource("3_na8rk")]
-position = Vector2(630, 100)
+position = Vector2(625, 168)
 
 [node name="computer5" parent="Network/Computers" instance=ExtResource("3_na8rk")]
-position = Vector2(325, 98)
+position = Vector2(325, 169)
 
 [node name="Line2D" parent="Network" instance=ExtResource("4_lsrrs")]
+points = PackedVector2Array(323, 177, 363, 261, 471, 280)
 
 [node name="Line2D4" type="Line2D" parent="Network"]
 z_index = -1
-points = PackedVector2Array(635, 116, 621, 230, 495, 278)
+points = PackedVector2Array(631, 173, 621, 230, 495, 278)
 default_color = Color(0.132813, 0.125, 0.203125, 1)
 
 [node name="Line2D3" type="Line2D" parent="Network"]
@@ -63,13 +67,12 @@ autostart = true
 [node name="Front Desk" parent="." instance=ExtResource("4_7spk4")]
 position = Vector2(845, 230)
 line_interval = 2.0
-progress_bar_size = Vector2(64, 8)
-progress_bar_position = Vector2(-32, -36)
-progress_bar_scale = Vector2(1, 1)
 
 [node name="UI" parent="." instance=ExtResource("5_jl0mr")]
 
 [node name="music" parent="." instance=ExtResource("7_lsiy8")]
+
+[node name="Tiles" parent="." instance=ExtResource("7_t7p0f")]
 
 [connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
 [connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]
