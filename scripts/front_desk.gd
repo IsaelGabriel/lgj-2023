@@ -37,6 +37,7 @@ func use():
 		line[0].current_state = line[0].State.FOLLOW
 		line[0].interacting_object=interacting_object
 		interacting_object.state=interacting_object.State.GUIDING
+		interacting_object.guided_costumer=line[0]
 		
 		line.pop_at(0)
 		for i in range(len(line)):

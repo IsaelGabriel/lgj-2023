@@ -143,7 +143,7 @@ func handle_selection():
 		current_target.selected = false
 		current_target = null
 
-func swap_state(new_value):
+func swap_state():
 	if state==State.FREE:
 		state=State.GUIDING
 	else:

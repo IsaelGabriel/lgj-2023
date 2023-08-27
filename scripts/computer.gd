@@ -12,19 +12,27 @@ enum Direction {LEFT,RIGHT,UP,DOWN}
 
 # direction handling
 @export var direction: Direction = Direction.DOWN
-		
+var current_direction
 
 func _ready():
 	super()
 	match direction:
 			Direction.DOWN:
 				sprite.frame_coords.y = 0
+				current_direction=Vector2(0,-1)
 			Direction.UP:
 				sprite.frame_coords.y = 2
-			_:
+				current_direction=Vector2(0,1)
+			Direction.LEFT:
 				sprite.frame_coords.y = 1
+				current_direction=Vector2(1,0)
+				sprite.flip_h=true
+			Direction.RIGHT:
+				sprite.frame_coords.y = 1
+				current_direction=Vector2(-1,0)
+				
 	
-	sprite.flip_h = (direction == Direction.LEFT)
+	
 
 func start(adjacency):
 	connections=adjacency
@@ -38,6 +46,7 @@ func use(): #temporary for testing
 	#	virus()
 
 func virus():
+	return
 	if status!=Status.VIRUS and imunity_timer.is_stopped():
 		status=Status.VIRUS
 		virus_timer.start()
@@ -57,3 +66,17 @@ func fix():
 	
 func _on_virus_timer_timeout():
 	infect()
+	
+func _set_interacting_object(new_value): #new_value will always be a player
+	if status==Status.FREE:
+		interacting_object=new_value.guided_costumer 
+		interacting_object.interacting_object=self
+		interacting_object.current_state=interacting_object.State.USE_PC          
+		new_value.guided_costumer=null
+		new_value.swap_state()
+		
+		
+		
+		
+		
+	print(interacting_object)
