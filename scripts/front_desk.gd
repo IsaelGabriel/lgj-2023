@@ -43,6 +43,7 @@ func use():
 		
 		line.pop_at(0)
 		for i in range(len(line)):
+
 			line[i].target_position = client_spawn.global_position
 			var line_sprite = line[i].get_node("Sprite2D")
 			var distance_between_objs = ((line_sprite.texture.get_height() / line_sprite.vframes ) * line_sprite.scale.y) + 1
@@ -50,5 +51,13 @@ func use():
 			line[i].target_position.y -= ((distance_between_objs) * i)
 			#line[i].global_position = client_spawn.global_position
 			#line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
+      
+      cash()
+		
+func cash():
+	randomize()
+	var money =randi()%10+20
+	get_parent().get_node("UI").update_point(money)
+
 
 
