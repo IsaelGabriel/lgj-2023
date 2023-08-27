@@ -58,6 +58,7 @@ func use():
 func cash():
 	randomize()
 	var money =randi()%10+20
+	$AudioCash.play()
 	get_parent().get_node("UI").update_point(money)
 
 

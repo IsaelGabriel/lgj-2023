@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dxi8y0qfkrej6" path="res://sprites/barra_cheia.png" id="2_mmipv"]
 
 [node name="progress_bar" type="TextureProgressBar"]
-z_index = 100
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
