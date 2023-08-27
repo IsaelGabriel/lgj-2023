@@ -6,14 +6,15 @@ const SPEED = 100.0
 const ACC = 120.0
 
 # enums
+enum State {FREE, GUIDING}
 
-@onready var current_direction = Vector2.DOWN
 
 # vars
-
+@onready var current_direction = Vector2.DOWN
 @onready var sprite = $Sprite2D
 @onready var animator = $AnimationPlayer
 @onready var selector = $Selector
+var state=State.FREE 
 var current_target = null
 var acceleration: Vector2 = Vector2(0, 0)
 var decceleration: Vector2 = Vector2(0, 0)
@@ -119,7 +120,10 @@ func handle_input(delta):
 		decceleration *= 0.7
 	
 	if Input.is_action_just_pressed("p1_use") and current_target != null:
+		current_target.interacting_object=self
+		current_target.object_state=state
 		current_target.interacting = not current_target.interacting
+		
 	
 func handle_selection():
 	var new_selection = selector.get_overlapping_bodies()
@@ -138,3 +142,10 @@ func handle_selection():
 	elif current_target != null:
 		current_target.selected = false
 		current_target = null
+
+func swap_state():
+	if state==State.FREE:
+		state=State.GUIDING
+	else:
+		state=State.FREE
+		
