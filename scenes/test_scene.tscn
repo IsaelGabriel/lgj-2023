@@ -60,7 +60,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Front Desk" parent="." instance=ExtResource("4_7spk4")]
-position = Vector2(1016, 236)
+position = Vector2(845, 230)
 
 [node name="UI" parent="." instance=ExtResource("5_jl0mr")]
 
