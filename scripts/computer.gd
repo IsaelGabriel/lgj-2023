@@ -40,7 +40,7 @@ func virus():
 	if status!=Status.VIRUS and imunity_timer.is_stopped():
 		status=Status.VIRUS
 		virus_timer.start()
-		sprite.frame=1
+		sprite.frame_coords.x = 1
 
 func infect():
 	randomize()
@@ -51,7 +51,7 @@ func fix():
 	if status==Status.VIRUS:
 		status=Status.FREE
 		virus_timer.stop()
-		sprite.frame=0
+		sprite.frame_coords.x = 0
 		imunity_timer.start()
 	
 func _on_virus_timer_timeout():
