@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkfcwp5sdhvea"]
+[gd_scene load_steps=10 format=3 uid="uid://bkfcwp5sdhvea"]
 
 [ext_resource type="Script" path="res://scenes/Level.gd" id="1_gi6uo"]
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="1_hehdr"]
 [ext_resource type="Script" path="res://scripts/Network.gd" id="2_k0r3j"]
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="3_na8rk"]
 [ext_resource type="PackedScene" uid="uid://dyv7agf8jf0g1" path="res://scenes/front_desk.tscn" id="4_7spk4"]
-[ext_resource type="PackedScene" uid="uid://cjoygk5cht1c5" path="res://scenes/Ethernet.tscn" id="4_lsrrs"]
-[ext_resource type="PackedScene" uid="uid://vjjkym5k13tc" path="res://scenes/ui.tscn" id="5_jl0mr"]
+[ext_resource type="PackedScene" uid="uid://150g0dk20hk6" path="res://scenes/Ethernet.tscn" id="4_lsrrs"]
+[ext_resource type="PackedScene" uid="uid://dr0hmpiffwu1d" path="res://scenes/ui.tscn" id="5_jl0mr"]
+[ext_resource type="PackedScene" uid="uid://b7ktr7jepcvm2" path="res://scenes/music.tscn" id="7_lsiy8"]
 [ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_t7p0f"]
 
 [node name="TestScene" type="Node2D"]
@@ -65,8 +66,11 @@ autostart = true
 
 [node name="Front Desk" parent="." instance=ExtResource("4_7spk4")]
 position = Vector2(845, 230)
+line_interval = 2.0
 
 [node name="UI" parent="." instance=ExtResource("5_jl0mr")]
+
+[node name="music" parent="." instance=ExtResource("7_lsiy8")]
 
 [node name="Tiles" parent="." instance=ExtResource("7_t7p0f")]
 
