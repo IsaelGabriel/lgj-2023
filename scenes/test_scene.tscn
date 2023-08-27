@@ -1,5 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkfcwp5sdhvea"]
 
+[ext_resource type="Script" path="res://scenes/Level.gd" id="1_gi6uo"]
 [ext_resource type="PackedScene" uid="uid://ctm72syamdtu3" path="res://scenes/player.tscn" id="1_hehdr"]
 [ext_resource type="Script" path="res://scripts/Network.gd" id="2_k0r3j"]
 [ext_resource type="PackedScene" uid="uid://b6vc6tnmg4sio" path="res://scenes/computer.tscn" id="3_na8rk"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bql1bbnoeqg6f" path="res://scenes/tiles.tscn" id="7_t7p0f"]
 
 [node name="TestScene" type="Node2D"]
+script = ExtResource("1_gi6uo")
 
 [node name="Player" parent="." instance=ExtResource("1_hehdr")]
 position = Vector2(260, 215)
