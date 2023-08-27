@@ -30,7 +30,7 @@ wait_time = 15.0
 autostart = true
 
 [node name="VirusTimer" type="Timer" parent="Network"]
-wait_time = 3.0
+wait_time = 120.0
 autostart = true
 
 [node name="Front Desk" parent="." instance=ExtResource("6_aqqgc")]
@@ -45,9 +45,11 @@ goal = 60
 [node name="Tiles" parent="." instance=ExtResource("8_pe6qr")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-text = "Get"
+offset_left = 372.0
+offset_top = 385.0
+offset_right = 584.0
+offset_bottom = 425.0
+text = "Take customers to PCs!"
 
 [connection signal="timeout" from="Network/MaxVirusTimer" to="Network" method="_on_max_virus_timer_timeout"]
 [connection signal="timeout" from="Network/VirusTimer" to="Network" method="_on_virus_timer_timeout"]
