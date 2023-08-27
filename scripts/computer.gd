@@ -31,7 +31,7 @@ func _ready():
 				sprite.frame_coords.y = 1
 				current_direction=Vector2(-1,0)
 				
-	
+
 	
 
 func start(adjacency):
@@ -46,11 +46,11 @@ func use(): #temporary for testing
 	#	virus()
 
 func virus():
-	return
-	if status!=Status.VIRUS and imunity_timer.is_stopped():
+	if status==Status.BUSY and imunity_timer.is_stopped():
 		status=Status.VIRUS
 		virus_timer.start()
 		sprite.frame_coords.x = 1
+	
 
 func infect():
 	randomize()
@@ -68,15 +68,10 @@ func _on_virus_timer_timeout():
 	infect()
 	
 func _set_interacting_object(new_value): #new_value will always be a player
-	if status==Status.FREE:
+	if status==Status.FREE and new_value:
 		interacting_object=new_value.guided_costumer 
 		interacting_object.interacting_object=self
 		interacting_object.current_state=interacting_object.State.USE_PC          
 		new_value.guided_costumer=null
 		new_value.swap_state()
-		
-		
-		
-		
-		
-	print(interacting_object)
+		status=Status.BUSY

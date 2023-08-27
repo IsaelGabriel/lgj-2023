@@ -29,7 +29,7 @@ func _on_max_virus_timer_timeout():
 
 func _on_virus_timer_timeout():
 	randomize()
-	var i =randi()%10
+	var i =0#randi()%10
 	if i==0:# 10% de chance
 		spawn_virus()
 		max_virus_timer.start()
