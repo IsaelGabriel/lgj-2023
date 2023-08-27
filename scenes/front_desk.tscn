@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyv7agf8jf0g1"]
+[gd_scene load_steps=4 format=3 uid="uid://dyv7agf8jf0g1"]
 
 [ext_resource type="Script" path="res://scripts/front_desk.gd" id="1_6bnv4"]
 [ext_resource type="Texture2D" uid="uid://bjutg36xemjcv" path="res://sprites/placeholder_desk.png" id="1_q1loy"]
-[ext_resource type="PackedScene" uid="uid://cpu83ho005f70" path="res://scenes/customer.tscn" id="2_ytq1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tl7b"]
 size = Vector2(128, 44)
@@ -10,7 +9,6 @@ size = Vector2(128, 44)
 [node name="Front Desk" type="StaticBody2D" groups=["player_selectable"]]
 script = ExtResource("1_6bnv4")
 max_clients = 3
-client_prefab = ExtResource("2_ytq1n")
 interaction_duration = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

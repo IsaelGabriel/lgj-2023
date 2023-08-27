@@ -2,7 +2,7 @@ extends "res://scripts/box.gd"
 
 @export var line_interval: float = 5.0
 @export var max_clients: int = 4
-@export var client_prefab: PackedScene
+@onready var client_prefab = preload("res://scenes/customer.tscn")
 
 @onready var client_spawn = $ClientSpawn
 
@@ -51,8 +51,7 @@ func use():
 			line[i].target_position.y -= ((distance_between_objs) * i)
 			#line[i].global_position = client_spawn.global_position
 			#line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
-      
-      cash()
+		cash()
 		
 func cash():
 	randomize()
