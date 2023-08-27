@@ -43,5 +43,12 @@ func use():
 		for i in range(len(line)):
 			line[i].global_position = client_spawn.global_position
 			line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
-
+		cash()
+		
+func cash():
+	randomize()
+	var money =randi()%10+20
+	get_parent().get_node("UI").update_point(money)
+	
+	
 
