@@ -4,6 +4,8 @@ const MIN_FOLLOW_DISTANCE: float = 64
 
 enum State {LINE, FOLLOW, USE_PC, LEAVE}
 
+var target_position = Vector2(0, 0)
+
 @onready var collider = $CollisionShape2D
 
 @onready var current_state: State = State.LINE :
@@ -30,12 +32,16 @@ func _process(delta):
 			process_use_pc(delta)
 
 func process_line(delta):
-	pass
+	var normalized_position = (target_position - global_position).normalized()
+	await get_tree().create_timer(0.2)
+	global_position += normalized_position * delta * SPEED
+	if global_position.distance_to(target_position) < 2:
+		global_position = target_position
 
 func process_follow(delta):
 	if interacting_object!=null:
 		
-		var target_position = interacting_object.position - interacting_object.current_direction * MIN_FOLLOW_DISTANCE
+		target_position = interacting_object.position - interacting_object.current_direction * MIN_FOLLOW_DISTANCE
 		
 		var normalized_position = (target_position - position).normalized()
 		await get_tree().create_timer(0.2)

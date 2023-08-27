@@ -27,6 +27,8 @@ func add_to_line():
 			
 			obj.global_position = client_spawn.global_position
 			obj.global_position.y -= (distance_between_objs * len(line))
+			obj.target_position = obj.global_position
+			
 			
 			line.append(obj)
 			
@@ -37,11 +39,16 @@ func use():
 		line[0].current_state = line[0].State.FOLLOW
 		line[0].interacting_object=interacting_object
 		interacting_object.state=interacting_object.State.GUIDING
-		interacting_object.guided_costumer=line[0]
+		interacting_object.guided_customer=line[0]
 		
 		line.pop_at(0)
 		for i in range(len(line)):
-			line[i].global_position = client_spawn.global_position
-			line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
+			line[i].target_position = client_spawn.global_position
+			var line_sprite = line[i].get_node("Sprite2D")
+			var distance_between_objs = (line_sprite.texture.get_height() * line_sprite.scale.y) + 1
+			
+			line[i].target_position.y -= ((distance_between_objs) * i)
+			#line[i].global_position = client_spawn.global_position
+			#line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
 
 
