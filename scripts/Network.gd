@@ -21,7 +21,7 @@ func spawn_virus():
 	var computers=$Computers.get_children()
 	randomize()
 	var i=randi()%(computers.size())
-	computers[i].virus()
+	computers[i].virus("network")
 
 func _on_max_virus_timer_timeout():
 		spawn_virus()

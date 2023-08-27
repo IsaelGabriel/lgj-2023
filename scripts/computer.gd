@@ -5,7 +5,11 @@ enum Status {FREE,BUSY,VIRUS}
 enum Direction {LEFT,RIGHT,UP,DOWN}
 
 @onready var connections=[]
-@onready var status=Status.FREE
+@onready var last_status=Status.FREE
+@onready var status: Status = Status.FREE :
+	set(new_status):
+		if status != Status.VIRUS: last_status = status
+		status = new_status
 @onready var virus_timer=$VirusTimer
 @onready var imunity_timer=$ImunityTimer
 @onready var sprite=$Sprite2D
@@ -48,8 +52,8 @@ func use(): #temporary for testing
 	#elif status==Status.FREE:
 	#	virus()
 
-func virus():
-	if status==Status.BUSY and imunity_timer.is_stopped():
+func virus(source: String):
+	if imunity_timer.is_stopped() and ((status==Status.BUSY and source == "network") or source == "computer"):
 		status=Status.VIRUS
 		virus_timer.start()
 		sprite.frame_coords.x = 1
@@ -60,11 +64,11 @@ func virus():
 func infect():
 	randomize()
 	var i=randi()%(connections.size())
-	connections[i].virus()
+	connections[i].virus("computer")
 
 func fix():
 	if status==Status.VIRUS:
-		status=Status.BUSY
+		status=last_status
 		virus_timer.stop()
 		sprite.frame_coords.x = 0
 		imunity_timer.start()
@@ -74,11 +78,11 @@ func _on_virus_timer_timeout():
 	infect()
 	
 func _set_interacting_object(new_value): #new_value will always be a player
-	if status==Status.FREE and new_value and new_value.guided_costumer:
-		interacting_object=new_value.guided_costumer 
-		interacting_object .interacting_object=self
+	if status==Status.FREE and new_value and new_value.guided_customer:
+		interacting_object=new_value.guided_customer 
+		interacting_object.interacting_object=self
 		interacting_object.current_state=interacting_object.State.USE_PC     
 		interacting_object.interacting=true     
-		new_value.guided_costumer=null
+		new_value.guided_customer=null
 		new_value.swap_state()
 		status=Status.BUSY

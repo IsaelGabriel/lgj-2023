@@ -33,7 +33,6 @@ position = Vector2(630, 100)
 
 [node name="computer5" parent="Network/Computers" instance=ExtResource("3_na8rk")]
 position = Vector2(325, 98)
-direction = 1
 
 [node name="Line2D" parent="Network" instance=ExtResource("4_lsrrs")]
 
