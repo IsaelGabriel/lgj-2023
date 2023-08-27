@@ -20,7 +20,7 @@ func add_to_line():
 			# instantiate line object here
 			var obj = client_prefab.instantiate()
 			var obj_sprite = obj.get_node("Sprite2D")
-			var distance_between_objs = (obj_sprite.texture.get_height() * obj_sprite.scale.y) + 1
+			var distance_between_objs = ((obj_sprite.texture.get_height() / obj_sprite.vframes )* obj_sprite.scale.y) + 1
 			
 			
 			get_parent().add_child(obj)
@@ -45,7 +45,7 @@ func use():
 		for i in range(len(line)):
 			line[i].target_position = client_spawn.global_position
 			var line_sprite = line[i].get_node("Sprite2D")
-			var distance_between_objs = (line_sprite.texture.get_height() * line_sprite.scale.y) + 1
+			var distance_between_objs = ((line_sprite.texture.get_height() / line_sprite.vframes ) * line_sprite.scale.y) + 1
 			
 			line[i].target_position.y -= ((distance_between_objs) * i)
 			#line[i].global_position = client_spawn.global_position
