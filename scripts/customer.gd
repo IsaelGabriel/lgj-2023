@@ -76,7 +76,7 @@ func process_use_pc(delta):
 		var normalized_position = (target_position - position).normalized()
 		await get_tree().create_timer(0.2)
 		
-		set_direction(normalized_position)
+		set_direction(-interacting_object.current_direction)
 		
 		position += normalized_position * delta * SPEED
 		moving = true

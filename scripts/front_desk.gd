@@ -51,7 +51,9 @@ func use():
 			line[i].target_position.y -= ((distance_between_objs) * i)
 			#line[i].global_position = client_spawn.global_position
 			#line[i].global_position.y -= ((line[i].get_node("Sprite2D").texture.get_height() / 2 + 1) * i)
+
 		cash()
+
 		
 func cash():
 	randomize()
