@@ -74,7 +74,7 @@ func _on_virus_timer_timeout():
 	infect()
 	
 func _set_interacting_object(new_value): #new_value will always be a player
-	if status==Status.FREE and new_value:
+	if status==Status.FREE and new_value and new_value.guided_costumer:
 		interacting_object=new_value.guided_costumer 
 		interacting_object .interacting_object=self
 		interacting_object.current_state=interacting_object.State.USE_PC     
@@ -82,4 +82,3 @@ func _set_interacting_object(new_value): #new_value will always be a player
 		new_value.guided_costumer=null
 		new_value.swap_state()
 		status=Status.BUSY
-		print("busy")
