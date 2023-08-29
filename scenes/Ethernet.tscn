@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://150g0dk20hk6"]
-
-[node name="Line2D" type="Line2D"]
-z_index = -1
-points = PackedVector2Array(327, 116, 363, 261, 471, 280)
-default_color = Color(0.132813, 0.125, 0.203125, 1)

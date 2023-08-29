@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://csjpshjegmhex"]
-
-[ext_resource type="AudioStream" uid="uid://d1edlxdrtulu1" path="res://sounds/460432__jay_you__music-elevator.wav" id="1_n1ate"]
-
-[node name="music" type="AudioStreamPlayer"]
-stream = ExtResource("1_n1ate")
-autoplay = true
